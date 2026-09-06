@@ -1,0 +1,264 @@
+/*
+========================================================
+                USER REGISTRY
+========================================================
+
+GOAL:
+Build a small User Registry system.
+
+You must practice:
+
+- this
+- class
+- User.prototype
+- destructuring
+- spread
+- rest
+- arrays
+- objects
+- loops
+- functions
+
+========================================================
+PART 1 — USER CLASS
+========================================================
+
+Create a User class.
+
+Each User must have:
+
+- id
+- name
+- age
+- skills
+
+The id must be automatic and unique.
+
+Example:
+
+const user1 = new User("Brahim", 22, ["C", "C++"]);
+const user2 = new User("Ali", 17, ["Python"]);
+
+user1.id -> 1
+user2.id -> 2
+
+
+Required methods INSIDE User:
+
+- addSkills(...skills)
+- removeSkill(skill)
+- getProfile()
+
+
+Required methods using User.prototype:
+
+- introduce()
+- isAdult()
+
+
+========================================================
+PART 2 — USER REGISTRY
+========================================================
+
+Create a UserRegistry class.
+
+It must contain:
+
+- users
+
+
+Required methods:
+
+- addUser(user)
+- removeUser(id)
+- findUser(id)
+- search(options)
+- getStats()
+- getTopUsers(count)
+
+
+========================================================
+RULES
+========================================================
+
+1. addUser(user)
+   Add a User to the registry.
+
+2. removeUser(id)
+   Remove the User with this id.
+
+3. findUser(id)
+   Return the User.
+   If the User does not exist, return null.
+
+4. search(options)
+   Search users by:
+   - name
+   - age
+   - skill
+
+5. getStats()
+   Return:
+   {
+       totalUsers,
+       adults,
+       minors,
+       averageAge
+   }
+
+6. getTopUsers(count)
+   Return users with the most skills.
+
+7. Do NOT modify the original users array
+   when sorting.
+
+8. addSkills() must accept any number of skills.
+
+9. Use destructuring.
+
+10. Use spread and rest.
+
+========================================================
+TEST
+========================================================
+*/
+
+class User {
+    // TODO
+}
+
+
+User.prototype.introduce = function () {
+    // TODO
+};
+
+
+User.prototype.isAdult = function () {
+    // TODO
+};
+
+
+class UserRegistry {
+    // TODO
+}
+
+
+// ======================
+// TEST DATA
+// ======================
+
+const user1 = new User(
+    "Brahim",
+    22,
+    ["C", "C++", "JavaScript"]
+);
+
+const user2 = new User(
+    "Ali",
+    17,
+    ["Python", "JavaScript"]
+);
+
+const user3 = new User(
+    "Sara",
+    25,
+    ["C", "C++", "Python", "JavaScript", "Docker"]
+);
+
+
+// ======================
+// REGISTRY
+// ======================
+
+const registry = new UserRegistry();
+
+registry.addUser(user1);
+registry.addUser(user2);
+registry.addUser(user3);
+
+
+// ======================
+// ADD SKILLS
+// ======================
+
+user1.addSkills("Git", "Node.js");
+
+
+// ======================
+// TEST 1
+// ======================
+
+console.log("========== TEST 1 ==========");
+
+console.log(user1.introduce());
+
+
+// ======================
+// TEST 2
+// ======================
+
+console.log("========== TEST 2 ==========");
+
+console.log(user2.isAdult());
+
+
+// ======================
+// TEST 3
+// ======================
+
+console.log("========== TEST 3 ==========");
+
+console.log(user1.getProfile());
+
+
+// ======================
+// TEST 4
+// ======================
+
+console.log("========== TEST 4 ==========");
+
+console.log(registry.findUser(2).name);
+
+
+// ======================
+// TEST 5
+// ======================
+
+console.log("========== TEST 5 ==========");
+
+console.log(
+    registry.search({
+        age: 22
+    })
+);
+
+
+// ======================
+// TEST 6
+// ======================
+
+console.log("========== TEST 6 ==========");
+
+console.log(
+    registry.search({
+        skill: "JavaScript"
+    })
+);
+
+
+// ======================
+// TEST 7
+// ======================
+
+console.log("========== TEST 7 ==========");
+
+console.log(registry.getStats());
+
+
+// ======================
+// TEST 8
+// ======================
+
+console.log("========== TEST 8 ==========");
+
+console.log(registry.getTopUsers(2));
